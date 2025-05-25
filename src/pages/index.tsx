@@ -16,7 +16,7 @@ export default function index() {
     <>
       <main className='w-full h-max overflow-x-hidden bg-[#e9a1b3]/5'>
         <div className='w-full h-full min-h-screen md:max-w-[480px] max-w-none md:mx-auto mx-0 bg-[#f0e6e6] p-5 overflow-x-hidden'>
-          <h2 className='font-hacky text-[50px] font-bold text-[#394475] leading-tight'>
+          <h2 className='font-hacky text-[40px] font-bold text-[#394475] leading-tight'>
             #Cerita Aku dan Kamu
           </h2>
           <p className='font-helvetica font-normal text-slate-400 text-xs leading-tight mb-5'>
