@@ -64,8 +64,13 @@ export default function Index() {
           )}
 
           {/* Audio (disembunyikan kontrolnya, dikontrol via tombol) */}
-          <audio ref={audioRef} src="/backsong-2.mp3" />
-
+          <audio
+            ref={audioRef}
+            src="/backsong-2.mp3"
+            onEnded={() => {
+              audioRef.current?.play(); // auto play ulang
+            }}
+          />
           <p className='font-helvetica font-normal text-slate-400 text-xs leading-tight'>
             <span className='text-[#394475]'>Yuk kita berjuang bareng,</span> saling bimbing menuju ibadah yang lebih sempurna, dan saling dekatkan diri kepada Allah dalam satu tujuan, satu ridho, satu cinta.
           </p>
