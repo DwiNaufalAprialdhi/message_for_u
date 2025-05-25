@@ -16,3 +16,15 @@
     font-family: "Helvetica Neue", sans-serif;
   }
 }
+
+.carousel-swiper {
+  overflow: visible !important;
+}
+
+.carousel-swiper .swiper-pagination-bullet {
+  @apply bg-gray-400 opacity-50 w-4 h-1 rounded-full transition-all duration-300 ease-in-out;
+}
+
+.carousel-swiper .swiper-pagination-bullet-active {
+  @apply bg-[#E6C1C7] opacity-100 w-4 h-1;
+}
