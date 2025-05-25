@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -10,7 +10,16 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import Image from 'next/image';
 
-export default function index() {
+export default function Index() {
+  const audioRef = useRef<HTMLAudioElement>(null); // 👈 fix type here
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    }
+  };
 
   return (
     <>
@@ -22,6 +31,7 @@ export default function index() {
           <p className='font-helvetica font-normal text-slate-400 text-xs leading-tight mb-5'>
             Untuk langkah yang insyaAllah diberkahi, untuk hati yang saling menjaga, dan cinta yang ingin pulang pada tujuan yang suci.
           </p>
+
           {/* SWIPER */}
           <div className='w-full grid grid-cols-1 mb-2'>
             <Swiper
@@ -33,33 +43,34 @@ export default function index() {
               modules={[Pagination]}
               className="carousel-swiper col-span-1 w-full md:h-[530px] h-[420px]"
             >
-              <SwiperSlide>
-                <div className='w-full h-max rounded-[8px] overflow-hidden'>
-                  <Image src="/1.png" alt="craousel" width={500} height={500} className='w-full h-full object-cover' />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className='w-full h-max rounded-[8px] overflow-hidden'>
-                  <Image src="/2.png" alt="craousel" width={500} height={500} className='w-full h-full object-cover' />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className='w-full h-max rounded-[8px] overflow-hidden'>
-                  <Image src="/3.png" alt="craousel" width={500} height={500} className='w-full h-full object-cover' />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className='w-full h-max rounded-[8px] overflow-hidden'>
-                  <Image src="/4.png" alt="craousel" width={500} height={500} className='w-full h-full object-cover' />
-                </div>
-              </SwiperSlide>
+              {[1, 2, 3, 4].map((num) => (
+                <SwiperSlide key={num}>
+                  <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                    <Image src={`/${num}.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                  </div>
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
+
+          {/* Button Play */}
+          {!isPlaying && (
+            <button
+              onClick={handlePlay}
+              className="w-full bg-[#e9a1b3] font-semibold text-xs py-2 text-slate-50 px-5 rounded mb-3 hover:bg-opacity-80 transition-all"
+            >
+              🎵 play lagu nya yaa neng.. 🎵
+            </button>
+          )}
+
+          {/* Audio (disembunyikan kontrolnya, dikontrol via tombol) */}
+          <audio ref={audioRef} src="/backsong-2.mp3" />
+
           <p className='font-helvetica font-normal text-slate-400 text-xs leading-tight'>
             <span className='text-[#394475]'>Yuk kita berjuang bareng,</span> saling bimbing menuju ibadah yang lebih sempurna, dan saling dekatkan diri kepada Allah dalam satu tujuan, satu ridho, satu cinta.
           </p>
         </div>
       </main>
     </>
-  )
+  );
 }
