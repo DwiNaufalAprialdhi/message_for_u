@@ -45,7 +45,7 @@ export default function Index() {
           {/* Audio (disembunyikan kontrolnya, dikontrol via tombol) */}
           <audio
             ref={audioRef}
-            src="/backsong-2.mp3"
+            src="/backsong-3.mp3"
             onEnded={() => {
               audioRef.current?.play(); // auto play ulang
             }}
