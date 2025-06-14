@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
 import Image from 'next/image';
+import Head from 'next/head';
 
 export default function Index() {
   const audioRef = useRef<HTMLAudioElement>(null); // 👈 fix type here
@@ -23,6 +24,9 @@ export default function Index() {
 
   return (
     <>
+      <Head>
+        <title>#ceritaakudankkamu</title>
+      </Head>
       <main className='w-full h-max overflow-x-hidden bg-[#e9a1b3]/5'>
         <div className='w-full h-full min-h-screen md:max-w-[480px] max-w-none md:mx-auto mx-0 bg-[#f0e6e6] p-5 overflow-x-hidden'>
           <h2 className='font-hacky text-[40px] font-bold text-[#394475] leading-tight'>
@@ -50,6 +54,17 @@ export default function Index() {
               audioRef.current?.play(); // auto play ulang
             }}
           />
+
+          {/* VISI MISI */}
+          <div className='w-full relative transition-all duration-500 bg-[#e9a1b3] rounded mb-3 cursor-pointer hover:bg-opacity-80 overflow-hidden'>
+            <h2 className='font-semibold text-xs text-slate-50 text-center py-2 px-5'>
+              💗 yeey visi misi kita 💗
+            </h2>
+            <input type="checkbox" className='absolute top-0 inset-x-0 w-full h-8 z-[1] cursor-pointer peer opacity-0' />
+            <div className='transition-all ease-in-out duration-500 h-0 peer-checked:h-auto pt-0 peer-checked:pt-2 pb-0 peer-checked:pb-5 px-0 peer-checked:px-5 overflow-hidden'>
+              <Image src="/visimisi.png" alt="visimisi" className='w-full h-full object-cover rounded-lg' width={1000} height={1000} />
+            </div>
+          </div>
 
           {/* SWIPER */}
           <div className='w-full grid grid-cols-1 mb-2'>
@@ -139,7 +154,6 @@ export default function Index() {
               </SwiperSlide>
             </Swiper>
           </div>
-
 
           <p className='font-helvetica font-normal text-slate-400 text-xs leading-tight'>
             <span className='text-[#394475]'>Yuk kita berjuang bareng,</span> saling bimbing menuju ibadah yang lebih sempurna, dan saling dekatkan diri kepada Allah dalam satu tujuan, satu ridho, satu cinta.
