@@ -55,14 +55,25 @@ export default function Index() {
             }}
           />
 
-          {/* VISI MISI */}
+          {/* VISI */}
           <div className='w-full relative transition-all duration-500 bg-[#e9a1b3] rounded mb-3 cursor-pointer hover:bg-opacity-80 overflow-hidden'>
             <h2 className='font-semibold text-xs text-slate-50 text-center py-2 px-5'>
-              💗 yeey visi misi kita 💗
+              💗 yeey visi kita 💗
             </h2>
             <input type="checkbox" className='absolute top-0 inset-x-0 w-full h-8 z-[1] cursor-pointer peer opacity-0' />
             <div className='transition-all ease-in-out duration-500 h-0 peer-checked:h-auto pt-0 peer-checked:pt-2 pb-0 peer-checked:pb-5 px-0 peer-checked:px-5 overflow-hidden'>
-              <Image src="/visimisi.png" alt="visimisi" className='w-full h-full object-cover rounded-lg' width={1000} height={1000} />
+              <Image src="/visi.png" alt="visimisi" className='w-full h-full object-cover rounded-lg' width={1000} height={1000} />
+            </div>
+          </div>
+
+          {/* MISI */}
+          <div className='w-full relative transition-all duration-500 bg-[#e9a1b3] rounded mb-3 cursor-pointer hover:bg-opacity-80 overflow-hidden'>
+            <h2 className='font-semibold text-xs text-slate-50 text-center py-2 px-5'>
+              💗 yeey misi kita 💗
+            </h2>
+            <input type="checkbox" className='absolute top-0 inset-x-0 w-full h-8 z-[1] cursor-pointer peer opacity-0' />
+            <div className='transition-all ease-in-out duration-500 h-0 peer-checked:h-auto pt-0 peer-checked:pt-2 pb-0 peer-checked:pb-5 px-0 peer-checked:px-5 overflow-hidden'>
+              <Image src="/misi.png" alt="visimisi" className='w-full h-full object-cover rounded-lg' width={1000} height={1000} />
             </div>
           </div>
 
