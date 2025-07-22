@@ -195,6 +195,44 @@ export default function Index() {
             </Swiper>
           </div>
 
+          <div className='w-max h-max bg-[#e9a1b3] z-50 rounded-full py-1 px-3 font-bold text-[10px] text-white animate-pulse mb-2'>
+            Ini yang terbaru sayang 💗
+          </div>
+
+          {/* SWIPER */}
+          <div className='w-full grid grid-cols-1 relative'>
+            <Swiper
+              slidesPerView={1.1}
+              spaceBetween={10}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Pagination]}
+              className="carousel-swiper col-span-1 w-full md:h-[530px] h-[435px]"
+            >
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/16.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/17.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/18.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/19.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+
           <p className='font-helvetica font-normal text-slate-400 text-xs leading-tight'>
             <span className='text-[#394475]'>Yuk kita berjuang bareng,</span> saling bimbing menuju ibadah yang lebih sempurna, dan saling dekatkan diri kepada Allah dalam satu tujuan, satu ridho, satu cinta.
           </p>
