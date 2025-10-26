@@ -492,12 +492,17 @@ export default function Index() {
               </SwiperSlide>
               <SwiperSlide>
                 <div className='w-full h-max rounded-[8px] overflow-hidden'>
-                  <Image src={`/011.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                  <Image src={`/revisi-1.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div className='w-full h-max rounded-[8px] overflow-hidden'>
                   <Image src={`/012.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/revisi-2.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
