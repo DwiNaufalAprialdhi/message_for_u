@@ -366,10 +366,6 @@ export default function Index() {
             </Swiper>
           </div>
 
-          <div className='w-max h-max bg-[#e9a1b3] z-50 rounded-full py-1 px-3 font-bold text-[10px] text-white animate-pulse mb-2'>
-            Ini yang terbaru sayang 💗
-          </div>
-
           {/* SWIPER */}
           <div className='w-full grid grid-cols-1 mb-2'>
             <Swiper
@@ -424,6 +420,99 @@ export default function Index() {
               <SwiperSlide>
                 <div className='w-full h-max rounded-[8px] overflow-hidden'>
                   <Image src={`/47.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+
+          <div className='w-max h-max bg-[#e9a1b3] z-50 rounded-full py-1 px-3 font-bold text-[10px] text-white animate-pulse mb-2'>
+            Ini yang terbaru sayang 💗
+          </div>
+
+          {/* SWIPER */}
+          <div className='w-full grid grid-cols-1 mb-2'>
+            <Swiper
+              slidesPerView={1.1}
+              spaceBetween={10}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Pagination]}
+              className="carousel-swiper col-span-1 w-full md:h-[530px] h-[430px]"
+            >
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/001.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/002.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/003.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/004.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/005.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/006.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/007.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/008.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/009.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/010.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/011.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/012.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/013.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/014.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='w-full h-max rounded-[8px] overflow-hidden'>
+                  <Image src={`/015.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
                 </div>
               </SwiperSlide>
             </Swiper>
