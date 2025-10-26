@@ -477,7 +477,7 @@ export default function Index() {
               </SwiperSlide>
               <SwiperSlide>
                 <div className='w-full h-max rounded-[8px] overflow-hidden'>
-                  <Image src={`/008.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
+                  <Image src={`/008r.png`} alt="carousel" width={500} height={500} className='w-full h-full object-cover' />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
