@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -10,17 +10,9 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import Head from 'next/head';
+import Navbar from '@/components/Navbar';
 
 export default function Index() {
-  const audioRef = useRef<HTMLAudioElement>(null); // 👈 fix type here
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handlePlay = () => {
-    if (audioRef.current) {
-      audioRef.current.play();
-      setIsPlaying(true);
-    }
-  };
 
   return (
     <>
@@ -28,32 +20,13 @@ export default function Index() {
         <title>#ceritaakudankkamu</title>
       </Head>
       <main className='w-full h-max overflow-x-hidden bg-[#e9a1b3]/5'>
-        <div className='w-full h-full min-h-screen md:max-w-[480px] max-w-none md:mx-auto mx-0 bg-[#f0e6e6] p-5 overflow-x-hidden'>
+        <div className='w-full h-full min-h-screen md:max-w-[480px] max-w-none md:mx-auto mx-0 bg-[#f0e6e6] px-5 pt-5 pb-[120px] overflow-x-hidden'>
           <h2 className='font-hacky text-[40px] font-bold text-[#394475] leading-tight'>
             #Cerita Aku dan Kamu
           </h2>
           <p className='font-helvetica font-normal text-slate-400 text-xs leading-tight mb-5'>
             Untuk langkah yang insyaAllah diberkahi, untuk hati yang saling menjaga, dan cinta yang ingin pulang pada tujuan yang suci.
           </p>
-
-          {/* Button Play */}
-          {!isPlaying && (
-            <button
-              onClick={handlePlay}
-              className="w-full bg-[#e9a1b3] font-semibold text-xs py-2 text-slate-50 px-5 rounded mb-3 hover:bg-opacity-80 transition-all"
-            >
-              🎵 play lagu nya yaa sayangg.. 🎵
-            </button>
-          )}
-
-          {/* Audio (disembunyikan kontrolnya, dikontrol via tombol) */}
-          <audio
-            ref={audioRef}
-            src="/backsong.mp3"
-            onEnded={() => {
-              audioRef.current?.play(); // auto play ulang
-            }}
-          />
 
           {/* VISI */}
           <div className='w-full relative transition-all duration-500 bg-[#e9a1b3] rounded mb-3 cursor-pointer hover:bg-opacity-80 overflow-hidden'>
@@ -597,6 +570,7 @@ export default function Index() {
           </p>
         </div>
       </main>
+      <Navbar />
     </>
   );
 }
