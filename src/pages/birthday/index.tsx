@@ -22,7 +22,7 @@ export default function Birthday() {
                   <main className='w-full h-max overflow-x-hidden bg-[#e9a1b3]/5'>
                         <div className='w-full h-full min-h-screen md:max-w-[480px] max-w-none md:mx-auto mx-0 bg-[#f0e6e6] px-5 pt-5 pb-[120px] overflow-x-hidden'>
                               <h2 className='font-hacky text-[40px] font-bold text-[#394475] leading-tight'>
-                                    #Your Birthday
+                                    #YourBirthday
                               </h2>
                               <p className='font-helvetica font-normal text-slate-400 text-xs leading-tight mb-5'>
                                     Happy Birthday! 🎉🎂 Wishing you a day filled with love, joy, and unforgettable moments. May this year bring you endless happiness and success. Cheers to another amazing year ahead! 🥳💖
