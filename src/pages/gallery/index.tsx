@@ -10,6 +10,10 @@ export default function Gallery() {
             "/gallery/g-1.jpg",
             "/gallery/g-2.jpg",
             "/gallery/g-6.jpg",
+            "/gallery/g-7.jpg",
+            "/gallery/g-8.jpg",
+            "/gallery/g-9.jpg",
+            "/gallery/g-10.jpg",
       ]
 
       return (
