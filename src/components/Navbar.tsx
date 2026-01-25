@@ -4,6 +4,7 @@ import { CircleFadingPlus, Gift, Images, Music } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
 
 export default function Navbar() {
       const pathname = usePathname();
@@ -35,7 +36,12 @@ export default function Navbar() {
                   {/* Audio */}
                   <audio ref={audioRef} src="/backsong.mp3" loop />
 
-                  <nav className="w-full h-max fixed z-50 bottom-5 inset-x-0 px-5">
+                  <motion.nav
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                        className="w-full h-max fixed z-50 bottom-5 inset-x-0 px-5"
+                  >
                         <div className="w-full md:max-w-[360px] max-w-none mx-auto h-max bg-[#FEFAFB] rounded-full p-4 
         flex justify-around items-center gap-2 shadow-lg">
 
@@ -46,32 +52,46 @@ export default function Navbar() {
                                     // Special button untuk Music
                                     if (item.type === "music") {
                                           return (
-                                                <button
+                                                <motion.button
                                                       key={i}
+                                                      whileTap={{ scale: 0.9 }}
                                                       onClick={toggleMusic}
-                                                      className="flex items-center justify-center flex-col gap-1"
+                                                      className="flex items-center justify-center flex-col gap-1 relative"
                                                 >
-                                                      {!isPlaying ? (
-                                                            <Icon
-                                                                  size={20}
-                                                                  className="text-[#394475]"
-                                                            />
-                                                      ) : (
-                                                            // Equalizer Animation Spotify-like
-                                                            <div className="flex gap-[3px] items-end h-[20px]">
-                                                                  <span className="w-[3px] h-2 bg-[#e9a1b3] animate-eq1 rounded"></span>
-                                                                  <span className="w-[3px] h-4 bg-[#e9a1b3] animate-eq2 rounded"></span>
-                                                                  <span className="w-[3px] h-3 bg-[#e9a1b3] animate-eq3 rounded"></span>
-                                                            </div>
-                                                      )}
+                                                      <div className="h-[20px] flex items-center justify-center">
+                                                            <AnimatePresence mode="wait">
+                                                                  {!isPlaying ? (
+                                                                        <motion.div
+                                                                              key="icon-music"
+                                                                              initial={{ scale: 0, opacity: 0 }}
+                                                                              animate={{ scale: 1, opacity: 1 }}
+                                                                              exit={{ scale: 0, opacity: 0 }}
+                                                                        >
+                                                                              <Icon size={20} className="text-[#394475]" />
+                                                                        </motion.div>
+                                                                  ) : (
+                                                                        <motion.div
+                                                                              key="equalizer"
+                                                                              initial={{ scale: 0, opacity: 0 }}
+                                                                              animate={{ scale: 1, opacity: 1 }}
+                                                                              exit={{ scale: 0, opacity: 0 }}
+                                                                              className="flex gap-[3px] items-end h-[16px]"
+                                                                        >
+                                                                              <span className="w-[3px] h-2 bg-[#e9a1b3] animate-eq1 rounded"></span>
+                                                                              <span className="w-[3px] h-4 bg-[#e9a1b3] animate-eq2 rounded"></span>
+                                                                              <span className="w-[3px] h-3 bg-[#e9a1b3] animate-eq3 rounded"></span>
+                                                                        </motion.div>
+                                                                  )}
+                                                            </AnimatePresence>
+                                                      </div>
 
                                                       <span
-                                                            className={`text-xs font-medium ${isPlaying ? "text-[#e9a1b3]" : "text-[#394475]"
+                                                            className={`text-xs font-medium transition-colors duration-300 ${isPlaying ? "text-[#e9a1b3]" : "text-[#394475]"
                                                                   }`}
                                                       >
                                                             Music
                                                       </span>
-                                                </button>
+                                                </motion.button>
                                           );
                                     }
 
@@ -80,24 +100,38 @@ export default function Navbar() {
                                           <Link
                                                 key={i}
                                                 href={item.href}
-                                                className="flex items-center justify-center flex-col gap-1"
+                                                className="flex items-center justify-center flex-col gap-1 relative"
                                           >
-                                                <Icon
-                                                      size={20}
-                                                      className={isActive ? "text-[#e9a1b3]" : "text-[#394475]"}
-                                                />
-                                                <span
-                                                      className={`text-xs font-medium ${isActive ? "text-[#e9a1b3]" : "text-[#394475]"
-                                                            }`}
+                                                <motion.div
+                                                      whileTap={{ scale: 0.9 }}
+                                                      className="flex flex-col items-center gap-1"
                                                 >
-                                                      {item.label}
-                                                </span>
+                                                      <Icon
+                                                            size={20}
+                                                            className={`transition-colors duration-300 ${isActive ? "text-[#e9a1b3]" : "text-[#394475]"}`}
+                                                      />
+                                                      <span
+                                                            className={`text-xs font-medium transition-colors duration-300 ${isActive ? "text-[#e9a1b3]" : "text-[#394475]"
+                                                                  }`}
+                                                      >
+                                                            {item.label}
+                                                      </span>
+                                                </motion.div>
+
+                                                {/* Active Indicator (Dot) */}
+                                                {isActive && (
+                                                      <motion.div
+                                                            layoutId="active-dot"
+                                                            className="absolute -top-1 w-1 h-1 bg-[#e9a1b3] rounded-full"
+                                                            transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                                      />
+                                                )}
                                           </Link>
                                     );
                               })}
 
                         </div>
-                  </nav>
+                  </motion.nav>
             </>
       );
 }
