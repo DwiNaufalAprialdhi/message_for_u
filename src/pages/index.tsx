@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -11,8 +11,39 @@ import { Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import Head from 'next/head';
 import Navbar from '@/components/Navbar';
+import { motion, AnimatePresence } from 'framer-motion'; // Import Framer Motion
+import { ChevronUp, ChevronDown } from 'lucide-react'; // Import Icon
 
 export default function Index() {
+
+  const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showBotBtn, setShowBotBtn] = useState(true);
+
+  // Logika deteksi scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      // Tampilkan tombol "ke atas" jika scroll lebih dari 400px
+      setShowTopBtn(window.scrollY > 400);
+
+      // Sembunyikan tombol "ke bawah" jika sudah sampai di ujung bawah (toleransi 100px)
+      const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 120;
+      setShowBotBtn(!isBottom);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <>
@@ -27,6 +58,41 @@ export default function Index() {
           <p className='font-helvetica font-normal text-slate-400 text-xs leading-tight mb-5'>
             Untuk langkah yang insyaAllah diberkahi, untuk hati yang saling menjaga, dan cinta yang ingin pulang pada tujuan yang suci.
           </p>
+
+          {/* Tombol Navigasi Scroll Melayang */}
+          <div className="fixed right-[max(5%,calc(50%-220px))] bottom-28 flex flex-col gap-3 z-40">
+            <AnimatePresence>
+              {showTopBtn && (
+                <motion.button
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={scrollToTop}
+                  className="bg-[#394475] text-white p-2 rounded-full shadow-lg border-2 border-white/20"
+                >
+                  <ChevronUp size={24} />
+                </motion.button>
+              )}
+            </AnimatePresence>
+
+            <AnimatePresence>
+              {showBotBtn && (
+                <motion.button
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={scrollToBottom}
+                  className="bg-[#e9a1b3] text-white p-2 rounded-full shadow-lg border-2 border-white/20"
+                >
+                  <ChevronDown size={24} />
+                </motion.button>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* VISI */}
           <div className='w-full relative transition-all duration-500 bg-[#e9a1b3] rounded mb-3 cursor-pointer hover:bg-opacity-80 overflow-hidden'>
