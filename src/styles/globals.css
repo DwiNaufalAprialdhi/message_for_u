@@ -29,6 +29,18 @@
   @apply bg-[#E6C1C7] opacity-100 w-4 h-1;
 }
 
+.carousel-swiper-februari {
+  overflow: visible !important;
+}
+
+.carousel-swiper-februari .swiper-pagination-bullet {
+  @apply bg-gray-400 opacity-50 lg:w-3 w-1 h-1 rounded-full transition-all duration-300 ease-in-out;
+}
+
+.carousel-swiper-februari .swiper-pagination-bullet-active {
+  @apply bg-[#E6C1C7] opacity-100 lg:w-3 w-1 h-1;
+}
+
 @keyframes eq1 {
   0% {
     height: 3px;

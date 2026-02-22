@@ -15,6 +15,8 @@ export default function Gallery() {
             "/gallery/g-8.JPG",
             "/gallery/g-9.JPG",
             "/gallery/g-10.JPG",
+            "/gallery/g-11.JPG",
+            "/gallery/g-12.JPG",
       ]
 
       // Varian untuk animasi list (container)
